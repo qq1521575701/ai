@@ -32,3 +32,6 @@
 
 #  GPU运行
     docker run -d --name llamafactory --gpus all -p 7860:7860 -v $(pwd)/data:/app/data -v $(pwd)/output:/app/output hiyouga/llamafactory llamafactory-cli webui
+    
+# 进入容器
+    docker exec -it llamafactory bash
