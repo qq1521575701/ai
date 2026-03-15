@@ -25,7 +25,15 @@
     curl http://127.0.0.1:11434/api/generate -d '{"model": "qwen2.5:3b","prompt": "你是什么模型？"}'
 
 ---
+# Easy Dataset
+## 构建 Docker 镜像
+    git clone https://github.com/ConardLi/easy-dataset.git && cd easy-dataset && docker build -t easy-dataset .
 
+## 运行容器
+    docker run -d -p 1717:1717 --name easy-dataset -v $(pwd)/dataset:/app/local-db
+
+
+---
 # 模型微调
 
 ##  拉取镜像
