@@ -35,3 +35,38 @@
     
 # 进入容器
     docker exec -it llamafactory bash
+
+# 训练命令
+    llamafactory-cli train \
+    --stage sft \
+    --do_train True \
+    --model_name_or_path Qwen/Qwen2.5-3B \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --template qwen \
+    --dataset_dir data \
+    --dataset chat_cn \
+    --cutoff_len 1024 \
+    --learning_rate 1e-4 \
+    --num_train_epochs 3 \
+    --max_samples 100000 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 16 \
+    --lr_scheduler_type cosine \
+    --max_grad_norm 1.0 \
+    --logging_steps 5 \
+    --save_steps 50 \
+    --warmup_ratio 0.1 \
+    --packing False \
+    --report_to none \
+    --output_dir saves/Qwen2.5-3B/lora/test1 \
+    --bf16 True \
+    --plot_loss True \
+    --trust_remote_code True \
+    --optim adamw_torch \
+    --lora_rank 32 \
+    --lora_alpha 64 \
+    --lora_dropout 0.05 \
+    --lora_target all
+
+
